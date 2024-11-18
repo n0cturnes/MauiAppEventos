@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiAppEventos.Views.CadastraEvento"
+             Title="CadastraEvento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource StTropaz}">
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+        <Label Text="Novo Evento" 
+               FontFamily="PoppinsExtraBoldItalic" 
+               FontSize="Header" 
+               TextColor="{StaticResource AlbescentWhite}" 
+               HorizontalOptions="Center"/>
+        <Frame Margin="10" Padding="10" BackgroundColor="{StaticResource AlbescentWhite}">
+
+            <VerticalStackLayout>
+                <Entry Placeholder="Nome do Evento..." 
+                       x:Name="NomeEvento"
+                       PlaceholderColor="{StaticResource HavelockBlue}" 
+                       TextColor="{StaticResource HavelockBlue}" 
+                       FontFamily="PoppinsRegular"
+                       />
+
+                <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Data de Início: " 
+                           FontFamily="PoppinsRegular" 
+                           TextColor="{StaticResource StTropaz}"/>
+                    <DatePicker x:Name="Dtpck_Inicio"
+                                Format="dd/MM/yyyy"
+                                DateSelected="Dtpck_Inicio_DateSelected"
+                                TextColor="{StaticResource Strikemaster}"
+                                />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Data de Término: " 
+                           FontFamily="PoppinsRegular" 
+                           TextColor="{StaticResource StTropaz}"/>
+                    <DatePicker x:Name="Dtpck_Termino"
+                                Format="dd/MM/yyyy"
+                                TextColor="{StaticResource Strikemaster}"
+                                />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="{Binding Value}" 
+                           BindingContext="{x:Reference stp_numParticipantes}" 
+                           FontFamily="PoppinsRegular" 
+                           TextColor="{StaticResource StTropaz}"
+                           Margin="15"/>
+                    
+                    <Stepper x:Name="stp_numParticipantes" 
+                             Minimum="1" 
+                             Maximum="1000" 
+                             Increment="1" 
+                             BackgroundColor="{StaticResource Glacier}"/>
+                </StackLayout>
+                
+                <Entry Placeholder="Local do Evento..." 
+                       x:Name="LocalEvento"
+                       PlaceholderColor="{StaticResource HavelockBlue}" 
+                       TextColor="{StaticResource HavelockBlue}" 
+                       FontFamily="PoppinsRegular"
+                       />
+                <Entry Placeholder="Custo p/ participante..." 
+                       x:Name="CustoParticipante"
+                       Keyboard="Numeric"
+                       PlaceholderColor="{StaticResource HavelockBlue}" 
+                       TextColor="{StaticResource HavelockBlue}" 
+                       FontFamily="PoppinsRegular"/>
+            </VerticalStackLayout>
+        
+        </Frame>
+        <Button BackgroundColor="{StaticResource Glacier}" 
+                Text="Avançar" 
+                x:Name="Avancar" 
+                Clicked="Avancar_Clicked"
+                Margin="10"
+                Padding="10"
+                TextColor="{StaticResource StTropaz}"
+                FontFamily="PoppinsRegular"/>
+    </VerticalStackLayout>
+</ContentPage>

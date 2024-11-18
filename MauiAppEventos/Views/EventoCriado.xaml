@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.EventoCriado"
+             Title="EventoCriado"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource StTropaz}"
+             >
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+        <Label Text="{Binding NomeEvento}" 
+           FontFamily="PoppinsExtraBoldItalic" 
+           FontSize="Header" 
+           TextColor="{StaticResource AlbescentWhite}" 
+           HorizontalOptions="Center"/>
+        <Frame Margin="10" Padding="10" BackgroundColor="{StaticResource AlbescentWhite}">
+
+            <VerticalStackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label TextColor="{StaticResource StTropaz}" FontFamily="PoppinsBold" Text="Local: " Margin="10"/>
+                    <Label TextColor="{StaticResource HavelockBlue}" FontFamily="PoppinsRegular" Text="{Binding LocalEvento}" Margin="10"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label TextColor="{StaticResource StTropaz}" FontFamily="PoppinsBold" Text="Participantes: " Margin="10"/>
+                    <Label TextColor="{StaticResource HavelockBlue}" FontFamily="PoppinsRegular" Text="{Binding Participantes}" Margin="10"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label TextColor="{StaticResource StTropaz}" FontFamily="PoppinsBold" Text="Valor p/ participante: " Margin="10"/>
+                    <Label TextColor="{StaticResource HavelockBlue}" FontFamily="PoppinsRegular" Text="{Binding ValorParticipante, StringFormat='{0:c}'}" Margin="10"/>
+                </StackLayout>
+            </VerticalStackLayout>
+            
+        </Frame>
+        <Frame Margin="10" Padding="10" BackgroundColor="{StaticResource AlbescentWhite}">
+            <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto, Auto">
+                <Label TextColor="{StaticResource StTropaz}" FontFamily="PoppinsBold" Grid.Row="0" Grid.Column="0" Text="Início: "/>
+                <Label TextColor="{StaticResource StTropaz}" FontFamily="PoppinsBold" Grid.Row="0" Grid.Column="1" Text="Término: "/>
+                <Label TextColor="{StaticResource StTropaz}" FontFamily="PoppinsBold" Grid.Row="0" Grid.Column="2" Text="Duração: "/>
+
+                <Label TextColor="{StaticResource HavelockBlue}" FontFamily="PoppinsRegular" Grid.Row="1" Grid.Column="0" Text="{Binding DataInicio, StringFormat='{0:dd/MM/yyyy}'}"/>
+                <Label TextColor="{StaticResource HavelockBlue}" FontFamily="PoppinsRegular" Grid.Row="1" Grid.Column="1" Text="{Binding DataFim, StringFormat='{0:dd/MM/yyyy}'}"/>
+                <Label TextColor="{StaticResource HavelockBlue}" FontFamily="PoppinsRegular" Grid.Row="1" Grid.Column="2" Text="{Binding Duracao.Days}"/>
+            </Grid>
+        </Frame>
+
+        <Frame  Margin="10" Padding="10" BackgroundColor="{StaticResource AlbescentWhite}">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label TextColor="{StaticResource StTropaz}" FontFamily="PoppinsBold" Text="Valor Total: " Margin="10"/>
+                <Label TextColor="{StaticResource HavelockBlue}" FontFamily="PoppinsRegular" Text="{Binding ValorEvento, StringFormat='{0:c}'}" Margin="10"/>
+            </StackLayout>
+        </Frame>
+        <Button BackgroundColor="{StaticResource Glacier}" 
+            Text="Voltar" 
+            x:Name="Voltar"
+            Clicked="Voltar_Clicked"
+            Margin="10"
+            Padding="10"
+            TextColor="{StaticResource StTropaz}"
+            FontFamily="PoppinsRegular"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>
